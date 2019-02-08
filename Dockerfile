@@ -8,12 +8,11 @@ RUN useradd docker \
 ## Install some useful tools and dependencies for MRO
 RUN apt update \
 	&& apt install -y --no-install-recommends \
+	apt-utils \
 	ca-certificates \
 	curl \
         wget \
 	&& rm -rf /var/lib/apt/lists/*
-
-
 
 # system libraries of general use
 RUN apt update && apt-get install -y \
