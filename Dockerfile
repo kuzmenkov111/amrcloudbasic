@@ -44,7 +44,7 @@ RUN apt update && apt install -y \
     build-essential
     
 WORKDIR /home/docker
-RUN wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
+RUN sudo wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
 && dpkg -i libpng12-01_1.2.54-1ubuntu1_amd64.deb
 # Download, valiate, and unpack and install Micrisift R open
 RUN wget https://www.dropbox.com/s/uz4e4d0frk21cvn/microsoft-r-open-3.5.1.tar.gz?dl=1 -O microsoft-r-open-3.5.1.tar.gz \
