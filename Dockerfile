@@ -93,6 +93,10 @@ RUN sudo apt-get install -y ncbi-blast+
 # basic shiny functionality
 RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('shinyjs'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('shinythemes'), repos='http://cran.rstudio.com/')" \
+
+shinythemes
 && R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('dplyr', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('purrr', repos='https://cran.r-project.org/')" \
