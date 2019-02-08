@@ -1,19 +1,9 @@
 FROM ubuntu:bionic
 
-ARG DEBIAN_FRONTED='noninteractive'
-
-
 RUN useradd docker \
 	&& mkdir /home/docker \
 	&& chown docker:docker /home/docker \
 	&& addgroup docker staff
-RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-	&& locale-gen en_US.utf8 \
-	&& /usr/sbin/update-locale LANG=en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-
-
 
 ## Install some useful tools and dependencies for MRO
 RUN apt-get update \
