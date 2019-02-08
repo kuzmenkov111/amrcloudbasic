@@ -6,8 +6,8 @@ RUN useradd docker \
 	&& addgroup docker staff
 
 ## Install some useful tools and dependencies for MRO
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
+RUN apt update \
+	&& apt install -y --no-install-recommends \
 	ca-certificates \
 	curl \
         wget \
@@ -16,7 +16,7 @@ RUN apt-get update \
 
 
 # system libraries of general use
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt-get install -y \
     sudo \
     pandoc \
     pandoc-citeproc \
@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev
 
 # system library dependency for the euler app
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt-get install -y \
     libmpfr-dev \
     gfortran \
     aptitude \
@@ -66,19 +66,16 @@ RUN rm microsoft-r-open-3.5.1.tar.gz \
 
 #COPY Makeconf /usr/lib64/microsoft-r/3.3/lib64/R/etc/Makeconf
 
-RUN apt-get install -y software-properties-common
+RUN apt install -y software-properties-common
 RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
-RUN apt-get update
-RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
+RUN apt update
+RUN apt install -y libudunits2-dev libgdal-dev libgeos-dev 
 
 
 RUN sudo apt-add-repository -y ppa:webupd8team/java \
-&& apt-get update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections && apt-get install -y oracle-java8-installer \
+&& apt update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections && apt-get install -y oracle-java8-installer \
 && R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre')"
 RUN sudo java -version
-
-#RUN sudo R CMD javareconf
-RUN sudo apt-get install -y ncbi-blast+
 
 # basic shiny functionality
 RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
