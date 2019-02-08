@@ -15,7 +15,7 @@ RUN apt update \
 	&& rm -rf /var/lib/apt/lists/*
 
 # system libraries of general use
-RUN apt update && apt-get install -y \
+RUN apt update && apt install -y \
     sudo \
     pandoc \
     pandoc-citeproc \
@@ -29,7 +29,7 @@ RUN apt update && apt-get install -y \
     libssl-dev
 
 # system library dependency for the euler app
-RUN apt update && apt-get install -y \
+RUN apt update && apt install -y \
     libmpfr-dev \
     gfortran \
     aptitude \
@@ -40,7 +40,6 @@ RUN apt update && apt-get install -y \
     libpcre3-dev\
     libbz2-dev \
     liblzma-dev \
-    openjdk-7-jdk \
     libnlopt-dev \
     build-essential
     
