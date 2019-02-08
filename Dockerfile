@@ -95,9 +95,10 @@ RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" 
 && R -e "install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shinyjs'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shinythemes'), repos='http://cran.rstudio.com/')" \
-
-shinythemes
-&& R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('dplyr', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('purrr', repos='https://cran.r-project.org/')" \
-&& R -e "install.packages('ggplot2', repos='https://cran.r-project.org/')"
+&& R -e "install.packages(c('dplyr'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('data.table'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('pool'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('bcrypt'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('binom'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('RPostgres'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')"
