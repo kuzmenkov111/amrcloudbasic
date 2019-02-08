@@ -46,7 +46,7 @@ RUN apt update && apt install -y \
     
 WORKDIR /home/docker
 RUN sudo wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb \
-&& gdebi libpng12-0_1.2.54-1ubuntu1_amd64.deb 
+&& gdebi -y libpng12-0_1.2.54-1ubuntu1_amd64.deb 
 # Download, valiate, and unpack and install Micrisift R open
 RUN wget https://www.dropbox.com/s/uz4e4d0frk21cvn/microsoft-r-open-3.5.1.tar.gz?dl=1 -O microsoft-r-open-3.5.1.tar.gz \
 && echo "9791AAFB94844544930A1D896F2BF1404205DBF2EC059C51AE75EBB3A31B3792 microsoft-r-open-3.5.1.tar.gz" > checksum.txt \
