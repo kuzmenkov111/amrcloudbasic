@@ -26,6 +26,7 @@ RUN apt update && apt install -y \
     libssh2-1-dev \
     libssl1.0.0 \
     libxml2-dev \
+    gdebi \
     libssl-dev
 
 # system library dependency for the euler app
