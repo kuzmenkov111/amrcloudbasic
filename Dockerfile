@@ -64,8 +64,6 @@ RUN rm microsoft-r-open-3.5.1.tar.gz \
 && rm -r microsoft-r-open
 
 
-#COPY Makeconf /usr/lib64/microsoft-r/3.3/lib64/R/etc/Makeconf
-
 RUN apt install -y software-properties-common
 RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
 RUN apt update
