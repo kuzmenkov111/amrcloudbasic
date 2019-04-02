@@ -54,7 +54,8 @@ RUN apt update && apt install -y \
     libnlopt-dev \
     build-essential \
     uchardet libuchardet-dev \
-    task-spooler
+    task-spooler \
+    cmake
     
 WORKDIR /home/docker
 RUN sudo wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb
