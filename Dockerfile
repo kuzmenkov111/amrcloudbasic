@@ -2,8 +2,17 @@ FROM ubuntu:bionic
 
 RUN useradd docker \
 	&& mkdir /home/docker \
-	&& chown docker:docker /home/docker \
-	&& addgroup docker staff
+	&& chown -R docker:docker /home/docker \
+	&& addgroup docker staff \
+	&& addgroup docker shiny
+	
+RUN apt update \
+	&& apt install -y locales \	
+	&& echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+	&& locale-gen en_US.utf8 \
+	&& /usr/sbin/update-locale LANG=en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
 
 ## Install some useful tools and dependencies for MRO
 RUN apt update \
@@ -42,7 +51,8 @@ RUN apt update && apt install -y \
     libbz2-dev \
     liblzma-dev \
     libnlopt-dev \
-    build-essential
+    build-essential \
+    uchardet libuchardet-dev
     
 WORKDIR /home/docker
 RUN sudo wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb
