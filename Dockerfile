@@ -2,9 +2,10 @@ FROM ubuntu:bionic
 
 RUN useradd docker \
 	&& mkdir /home/docker \
+	&& mkdir /home/docker/app \
+	&& mkdir /home/docker/data \
 	&& chown -R docker:docker /home/docker \
-	&& addgroup docker staff \
-	&& addgroup docker shiny
+	&& addgroup docker staff
 	
 RUN apt update \
 	&& apt install -y locales \	
@@ -52,7 +53,8 @@ RUN apt update && apt install -y \
     liblzma-dev \
     libnlopt-dev \
     build-essential \
-    uchardet libuchardet-dev
+    uchardet libuchardet-dev \
+    task-spooler
     
 WORKDIR /home/docker
 RUN sudo wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb
