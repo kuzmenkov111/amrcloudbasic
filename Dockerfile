@@ -38,7 +38,9 @@ RUN apt update && apt install -y \
     libxml2-dev \
     gdebi \
     libssl-dev \
-    systemd
+    systemd \
+    zip \
+    unzip
 
 # system library dependency for the euler app
 RUN apt update && apt install -y \
