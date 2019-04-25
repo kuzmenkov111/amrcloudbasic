@@ -81,10 +81,10 @@ RUN rm microsoft-r-open-3.5.1.tar.gz \
 
 
 RUN apt install -y software-properties-common
-RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
-RUN apt update
-RUN apt install -y libudunits2-dev libgdal-dev libgeos-dev 
-RUN sudo apt install -y openjdk-11-jdk \
+RUN sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
+&& apt update \
+&& apt install -y libudunits2-dev libgdal-dev libgeos-dev \
+&& apt install -y openjdk-11-jdk \
 && java -version
 
 #RUN sudo apt-add-repository -y ppa:webupd8team/java \
