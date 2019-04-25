@@ -58,7 +58,8 @@ RUN apt update && apt install -y \
     build-essential \
     uchardet libuchardet-dev \
     task-spooler \
-    cmake
+    cmake \
+    cron
     
 WORKDIR /home/docker
 RUN sudo wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb
@@ -103,4 +104,6 @@ RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" 
 && R -e "install.packages(c('bcrypt'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('binom'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('RPostgres'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')"
+&& R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('cronR'), repos='http://cran.rstudio.com/')" 
+
