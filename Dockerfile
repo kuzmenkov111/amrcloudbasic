@@ -4,6 +4,7 @@ RUN useradd docker \
 	&& mkdir /home/docker \
 	&& mkdir /home/docker/app \
 	&& mkdir /home/docker/data \
+	&& mkdir /home/docker/cashe \
 	&& chown -R docker:docker /home/docker \
 	&& addgroup docker staff
 	
