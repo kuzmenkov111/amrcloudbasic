@@ -113,7 +113,7 @@ RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" 
 && R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('cronR'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('commonmark'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('httr', 'processx'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('remotes'), repos='http://cran.rstudio.com/')" \
 && R -e "remotes::install_git('https://github.com/kuzmenkov111/blastula')"
 
