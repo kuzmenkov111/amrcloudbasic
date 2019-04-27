@@ -89,6 +89,10 @@ RUN sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
 && apt install -y openjdk-11-jdk \
 && java -version
 
+RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit.deb?dl=1 -O mailsend-go_linux_64-bit.deb \
+&& dpkg -i mailsend-go_linux_64-bit.deb \
+&& rm mailsend-go_linux_64-bit.deb
+
 #RUN sudo apt-add-repository -y ppa:webupd8team/java \
 #&& apt update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections && apt-get install -y oracle-java8-installer \
 #&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre')"
@@ -106,5 +110,8 @@ RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" 
 && R -e "install.packages(c('binom'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('RPostgres'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('cronR'), repos='http://cran.rstudio.com/')" 
+&& R -e "install.packages(c('cronR'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('commonmark'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('remotes'), repos='http://cran.rstudio.com/')" \
+&& R -e "remotes::install_git('https://github.com/kuzmenkov111/blastula')"
 
