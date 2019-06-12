@@ -63,7 +63,7 @@ RUN apt update && apt install -y \
     cron \
     git-core
     
-WORKDIR /home/docker
+WORKDIR /home/amrcloud
 RUN sudo wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb
 RUN sudo dpkg -i libpng12-0_1.2.54-1ubuntu1_amd64.deb 
 # Download, valiate, and unpack and install Micrisift R open
@@ -71,13 +71,13 @@ RUN wget https://www.dropbox.com/s/uz4e4d0frk21cvn/microsoft-r-open-3.5.1.tar.gz
 && echo "9791AAFB94844544930A1D896F2BF1404205DBF2EC059C51AE75EBB3A31B3792 microsoft-r-open-3.5.1.tar.gz" > checksum.txt \
 	&& sha256sum -c --strict checksum.txt \
 	&& tar -xf microsoft-r-open-3.5.1.tar.gz \
-	&& cd /home/docker/microsoft-r-open \
+	&& cd /home/amrcloud/microsoft-r-open \
 	&& ./install.sh -a -u \
 	&& ls logs && cat logs/*
 
 
 # Clean up
-WORKDIR /home/docker
+WORKDIR /amrcloud/docker
 RUN rm microsoft-r-open-3.5.1.tar.gz \
 	&& rm checksum.txt \
 && rm -r microsoft-r-open
