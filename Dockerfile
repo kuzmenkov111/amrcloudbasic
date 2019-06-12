@@ -77,7 +77,7 @@ RUN wget https://www.dropbox.com/s/uz4e4d0frk21cvn/microsoft-r-open-3.5.1.tar.gz
 
 
 # Clean up
-WORKDIR /amrcloud/docker
+WORKDIR /home/amrcloud
 RUN rm microsoft-r-open-3.5.1.tar.gz \
 	&& rm checksum.txt \
 && rm -r microsoft-r-open
