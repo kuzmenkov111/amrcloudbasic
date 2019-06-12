@@ -1,12 +1,12 @@
 FROM ubuntu:bionic
 
-RUN useradd docker \
-	&& mkdir /home/docker \
-	&& mkdir /home/docker/app \
-	&& mkdir /home/docker/data \
-	&& mkdir /home/docker/cashe \
-	&& chown -R docker:docker /home/docker \
-	&& addgroup docker staff
+RUN useradd amrcloud \
+	&& mkdir /home/amrcloud \
+	&& mkdir /home/amrcloud/app \
+	&& mkdir /home/amrcloud/data \
+	&& mkdir /home/amrcloud/cashe \
+	&& chown -R amrcloud:amrcloud /home/amrcloud \
+	&& addgroup amrcloud staff
 	
 RUN apt update \
 	&& apt install -y locales \	
