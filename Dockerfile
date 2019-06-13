@@ -1,12 +1,12 @@
 FROM ubuntu:bionic
 
-RUN useradd amrcloud \
-	&& mkdir /home/amrcloud \
-	&& mkdir /home/amrcloud/app \
-	&& mkdir /home/amrcloud/data \
-	&& mkdir /home/amrcloud/cashe \
-	&& chown -R amrcloud:amrcloud /home/amrcloud \
-	&& addgroup amrcloud staff
+RUN useradd amrcloud_user \
+	&& mkdir /home/amrcloud_user \
+	&& mkdir /home/amrcloud_user/app \
+	&& mkdir /home/amrcloud_user/data \
+	&& mkdir /home/amrcloud_user/cashe \
+	&& chown -R amrcloud_user:amrcloud_user /home/amrcloud_user \
+	&& addgroup amrcloud_user staff
 	
 RUN apt update \
 	&& apt install -y locales \	
@@ -71,13 +71,13 @@ RUN wget https://www.dropbox.com/s/uz4e4d0frk21cvn/microsoft-r-open-3.5.1.tar.gz
 && echo "9791AAFB94844544930A1D896F2BF1404205DBF2EC059C51AE75EBB3A31B3792 microsoft-r-open-3.5.1.tar.gz" > checksum.txt \
 	&& sha256sum -c --strict checksum.txt \
 	&& tar -xf microsoft-r-open-3.5.1.tar.gz \
-	&& cd /home/amrcloud/microsoft-r-open \
+	&& cd /home/amrcloud_user/microsoft-r-open \
 	&& ./install.sh -a -u \
 	&& ls logs && cat logs/*
 
 
 # Clean up
-WORKDIR /home/amrcloud
+WORKDIR /home/amrcloud_user
 RUN rm microsoft-r-open-3.5.1.tar.gz \
 	&& rm checksum.txt \
 && rm -r microsoft-r-open
