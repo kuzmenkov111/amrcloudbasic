@@ -63,7 +63,7 @@ RUN apt update && apt install -y \
     cron \
     git-core
     
-WORKDIR /home/amrcloud
+WORKDIR /home/amrcloud_user
 RUN sudo wget https://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb
 RUN sudo dpkg -i libpng12-0_1.2.54-1ubuntu1_amd64.deb 
 # Download, valiate, and unpack and install Micrisift R open
