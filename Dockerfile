@@ -144,10 +144,8 @@ RUN apt update && apt install -y \
     libcurl4-gnutls-dev \
     libssl-dev \
     libssh2-1-dev \
-    libssl1.0.0 \
     libxml2-dev \
     gdebi \
-    libssl-dev \
     systemd \
     libmpfr-dev \
     aptitude \
