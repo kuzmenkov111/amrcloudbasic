@@ -197,5 +197,3 @@ RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" 
 && R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('remotes'), repos='http://cran.rstudio.com/')" \
 && R -e "remotes::install_git('https://github.com/kuzmenkov111/blastula')"
-
-CMD ["R"]
