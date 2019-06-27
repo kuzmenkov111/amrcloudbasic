@@ -166,9 +166,9 @@ RUN apt update && apt install -y \
 RUN apt install -y software-properties-common \
 #RUN sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
 #&& apt update \
-&& apt install -y libudunits2-dev libgdal-dev libgeos-dev \
+&& apt install -y libudunits2-dev libgdal-dev libgeos-dev
 #&& apt install -y openjdk-11-jdk \
-&& java -version
+#&& java -version
 
 RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit.deb?dl=1 -O mailsend-go_linux_64-bit.deb \
 && dpkg -i mailsend-go_linux_64-bit.deb \
