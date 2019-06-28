@@ -159,7 +159,8 @@ RUN apt update && apt install -y \
     task-spooler \
     cmake \
     cron \
-    git-core
+    git-core \
+    wget
     
 
 
