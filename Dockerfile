@@ -164,10 +164,13 @@ RUN apt update && apt install -y \
     
 
 
-RUN apt install -y software-properties-common \
-#RUN sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
+RUN apt install -y software-properties-common
+RUN sudo apt-get update \
+&& apt-get install -y default-jre \
+#sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
 #&& apt update \
-&& apt install -y libudunits2-dev libgdal-dev libgeos-dev
+&& apt install -y libudunits2-dev libgdal-dev libgeos-dev \
+&& javac -version
 #&& apt install -y openjdk-11-jdk \
 #&& java -version
 
