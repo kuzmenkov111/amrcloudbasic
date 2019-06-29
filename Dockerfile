@@ -167,7 +167,7 @@ RUN apt install -y software-properties-common
 RUN sudo apt-get update \
 #&& apt-cache search openjdk \
 #&& apt install -y openjdk-11-jre openjdk-11-jdk \
-#&& apt-get install -y default-jre\
+&& apt-get install -y default-jre default-jdk \
 #sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
 #&& apt update \
 && apt install -y libudunits2-dev libgdal-dev libgeos-dev \
@@ -187,7 +187,7 @@ RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit
 # basic shiny functionality
 RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
 && R CMD javareconf -e \
-&& R -e "install.packages(c('rJava'), repos='http://cran.rstudio.com/')" \
+&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages(c('rJava'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shinyjs'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shinythemes'), repos='http://cran.rstudio.com/')" \
