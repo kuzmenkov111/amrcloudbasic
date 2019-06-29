@@ -167,7 +167,7 @@ RUN apt install -y software-properties-common
 RUN sudo apt-get update \
 #&& apt-cache search openjdk \
 #&& apt install -y openjdk-11-jre openjdk-11-jdk \
-&& apt-get install -y default-jre\
+#&& apt-get install -y default-jre\
 #sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
 #&& apt update \
 && apt install -y libudunits2-dev libgdal-dev libgeos-dev \
