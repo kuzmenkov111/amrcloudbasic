@@ -4,7 +4,6 @@ LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://github.com/rocker-org/rocker-versioned" \
       org.label-schema.vendor="Rocker Project" \
       maintainer="Carl Boettiger <cboettig@ropensci.org>"
-
 RUN useradd amrcloud_user \
 	&& mkdir /home/amrcloud_user \
 	&& mkdir /home/amrcloud_user/app \
@@ -166,7 +165,7 @@ RUN apt update && apt install -y \
 
 RUN apt install -y software-properties-common
 RUN sudo apt-get update \
-&& apt-get install -y default-jre \
+&& apt-get install -y oracle-java8-installer \
 #sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
 #&& apt update \
 && apt install -y libudunits2-dev libgdal-dev libgeos-dev \
