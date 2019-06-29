@@ -184,6 +184,7 @@ RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit
 
 # basic shiny functionality
 RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
+&& R CMD javareconf \
 && R -e "install.packages(c('rJava'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shinyjs'), repos='http://cran.rstudio.com/')" \
