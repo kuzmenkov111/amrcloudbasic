@@ -159,7 +159,8 @@ RUN apt update && apt install -y \
     cmake \
     cron \
     git-core \
-    wget
+    wget \
+    cairo
     
 
 
