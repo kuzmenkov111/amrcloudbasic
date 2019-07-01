@@ -4,13 +4,13 @@ LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://github.com/rocker-org/rocker-versioned" \
       org.label-schema.vendor="Rocker Project" \
       maintainer="Carl Boettiger <cboettig@ropensci.org>"
-RUN useradd amrcloud_user \
-	&& mkdir /home/amrcloud_user \
-	&& mkdir /home/amrcloud_user/app \
-	&& mkdir /home/amrcloud_user/data \
-	&& mkdir /home/amrcloud_user/cashe \
-	&& chown -R amrcloud_user:amrcloud_user /home/amrcloud_user \
-	&& addgroup amrcloud_user staff
+RUN useradd -u 555 dockerapp\
+    && mkdir /home/dockerapp\
+    && mkdir /home/dockerapp/app \
+    && mkdir /home/dockerapp/data \
+    && mkdir /home/dockerapp/cashe \
+    && chown -R dockerapp:dockerapp /home/dockerapp  \
+    && addgroup dockerapp staff
 
 ARG R_VERSION
 ARG BUILD_DATE
