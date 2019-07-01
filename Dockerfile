@@ -6,8 +6,7 @@ RUN useradd amrcloud_user \
 	&& mkdir /home/amrcloud_user/data \
 	&& mkdir /home/amrcloud_user/cashe \
 	&& chown -R amrcloud_user:amrcloud_user /home/amrcloud_user \
-	&& addgroup amrcloud_user staff
-	
+	&& addgroup amrcloud_user staff	
 RUN apt update \
 	&& apt install -y locales \	
 	&& echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
