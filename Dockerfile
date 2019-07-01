@@ -160,7 +160,7 @@ RUN apt update && apt install -y \
     cron \
     git-core \
     wget \
-    cairo
+    libcairo2-dev
     
 
 
