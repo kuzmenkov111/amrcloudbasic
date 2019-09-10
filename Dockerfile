@@ -107,8 +107,8 @@ RUN apt-get update \
   ## Build and install
   && make \
   && make install \
-  ## Add a default CRAN mirror
-  && echo "options(repos = c(CRAN = 'https://cran.rstudio.com/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
+  ## Add a default miniCRAN mirror
+  && echo "options(repos = c(CRAN = 'http://185.244.173.242:3838/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
   ## Add a library directory (for user-installed packages)
   && mkdir -p /usr/local/lib/R/site-library \
   && chown root:staff /usr/local/lib/R/site-library \
@@ -116,14 +116,9 @@ RUN apt-get update \
   ## Fix library path
   && echo "R_LIBS_USER='/usr/local/lib/R/site-library'" >> /usr/local/lib/R/etc/Renviron \
   && echo "R_LIBS=\${R_LIBS-'/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib/R/library'}" >> /usr/local/lib/R/etc/Renviron \
-  ## install packages from date-locked MRAN snapshot of CRAN
-  && [ -z "$BUILD_DATE" ] && BUILD_DATE=$(TZ="America/Los_Angeles" date -I) || true \
-  && MRAN=https://mran.microsoft.com/snapshot/${BUILD_DATE} \
-  && echo MRAN=$MRAN >> /etc/environment \
-  && export MRAN=$MRAN \
-  && echo "options(repos = c(CRAN='$MRAN'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
+  
   ## Use littler installation scripts
-  && Rscript -e "install.packages(c('littler', 'docopt'), repo = '$MRAN')" \
+  && Rscript -e "install.packages(c('littler', 'docopt'))" \
   && ln -s /usr/local/lib/R/site-library/littler/examples/install2.r /usr/local/bin/install2.r \
   && ln -s /usr/local/lib/R/site-library/littler/examples/installGithub.r /usr/local/bin/installGithub.r \
   && ln -s /usr/local/lib/R/site-library/littler/bin/r /usr/local/bin/r \
@@ -166,41 +161,29 @@ RUN apt update && apt install -y \
 
 RUN apt install -y software-properties-common
 RUN sudo apt-get update \
-#&& apt-cache search openjdk \
-#&& apt install -y openjdk-11-jre openjdk-11-jdk \
 && apt-get install -y default-jre default-jdk \
-#sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
-#&& apt update \
 && apt install -y libudunits2-dev libgdal-dev libgeos-dev \
 && java -version
-#&& apt install -y openjdk-11-jdk \
-#&& java -version
 
 RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit.deb?dl=1 -O mailsend-go_linux_64-bit.deb \
 && dpkg -i mailsend-go_linux_64-bit.deb \
 && rm mailsend-go_linux_64-bit.deb
 
-#RUN sudo apt-add-repository -y ppa:webupd8team/java \
-#&& apt update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections && apt-get install -y oracle-java8-installer \
-#&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre')"
-#RUN sudo java -version
-
 # basic shiny functionality
-RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
+RUN sudo R -e "getOption("repos"); install.packages('rmarkdown')" \
 && R CMD javareconf -e \
-&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages(c('rJava'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('shinyjs'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('shinythemes'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('dplyr'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('data.table'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('pool'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('bcrypt'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('binom'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('RPostgres'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('cronR'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('commonmark'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('remotes'), repos='http://cran.rstudio.com/')" \
-&& R -e "remotes::install_git('https://github.com/kuzmenkov111/blastula')"
+&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages(c('rJava'))" \
+&& R -e "install.packages(c('shiny'))" \
+&& R -e "install.packages(c('shinyjs'))" \
+&& R -e "install.packages(c('shinythemes'))" \
+&& R -e "install.packages(c('dplyr'))" \
+&& R -e "install.packages(c('data.table'))" \
+&& R -e "install.packages(c('pool'))" \
+&& R -e "install.packages(c('bcrypt'))" \
+&& R -e "install.packages(c('binom'))" \
+&& R -e "install.packages(c('RPostgres'))" \
+&& R -e "install.packages(c('DBI'))" \
+&& R -e "install.packages(c('cronR'))" \
+&& R -e "install.packages(c('commonmark'))" \
+&& R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'))" \
+&& R -e "install.packages(c('remotes', 'blastula'))"
