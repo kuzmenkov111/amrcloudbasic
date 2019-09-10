@@ -73,14 +73,11 @@ RUN wget https://www.dropbox.com/s/uz4e4d0frk21cvn/microsoft-r-open-3.5.1.tar.gz
 	&& cd /home/dockerapp/microsoft-r-open \
 	&& ./install.sh -a -u \
 	&& ls logs && cat logs/*
-
-
 # Clean up
 WORKDIR /home/dockerapp
 RUN rm microsoft-r-open-3.5.1.tar.gz \
 	&& rm checksum.txt \
 && rm -r microsoft-r-open
-
 
 RUN apt install -y software-properties-common
 RUN sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
@@ -93,10 +90,6 @@ RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit
 && dpkg -i mailsend-go_linux_64-bit.deb \
 && rm mailsend-go_linux_64-bit.deb
 
-#RUN sudo apt-add-repository -y ppa:webupd8team/java \
-#&& apt update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections && apt-get install -y oracle-java8-installer \
-#&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre')"
-#RUN sudo java -version
 
 # basic shiny functionality
 RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
