@@ -170,7 +170,7 @@ RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit
 && rm mailsend-go_linux_64-bit.deb
 
 # basic shiny functionality
-RUN sudo R -e "getOption("repos"); install.packages('rmarkdown')" \
+RUN sudo R -e "getOption('repos'); install.packages('rmarkdown')" \
 && R CMD javareconf -e \
 && R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages(c('rJava'))" \
 && R -e "install.packages(c('shiny'))" \
