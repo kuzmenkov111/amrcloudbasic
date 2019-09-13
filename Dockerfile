@@ -14,7 +14,6 @@ RUN apt update \
 	&& /usr/sbin/update-locale LANG=en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
-
 ## Install some useful tools and dependencies for MRO
 RUN apt update \
 	&& apt install -y --no-install-recommends \
@@ -89,7 +88,6 @@ RUN sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable \
 RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit.deb?dl=1 -O mailsend-go_linux_64-bit.deb \
 && dpkg -i mailsend-go_linux_64-bit.deb \
 && rm mailsend-go_linux_64-bit.deb
-
 
 # basic shiny functionality
 RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
