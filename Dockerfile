@@ -9,6 +9,7 @@ RUN useradd -u 555 dockerapp\
     && mkdir /home/dockerapp/app \
     && mkdir /home/dockerapp/data \
     && mkdir /home/dockerapp/cashe \
+    && mkdir /home/docker/deleted \
     && chown -R dockerapp:dockerapp /home/dockerapp  \
     && addgroup dockerapp staff
 
