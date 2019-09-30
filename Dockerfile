@@ -5,6 +5,7 @@ RUN useradd docker \
 	&& mkdir /home/docker/app \
 	&& mkdir /home/docker/data \
 	&& mkdir /home/docker/cashe \
+	&& mkdir /home/docker/deleted \
 	&& chown -R docker:docker /home/docker \
 	&& addgroup docker staff
 	
