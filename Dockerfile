@@ -101,18 +101,18 @@ RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit
 #RUN sudo java -version
 
 # basic shiny functionality
-RUN sudo R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('shinyjs'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('shinythemes'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('dplyr'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('data.table'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('pool'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('bcrypt'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('binom'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('RPostgres'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('DBI'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('cronR'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('commonmark'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'), repos='http://cran.rstudio.com/')" \
-&& R -e "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl'); install.packages(c('remotes', 'blastula'), repos='http://cran.rstudio.com/')" 
+RUN sudo R -e "install.packages('rmarkdown', repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('shiny'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('shinyjs'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('shinythemes'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('dplyr'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('data.table'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('pool'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('bcrypt'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('binom'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('RPostgres'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('DBI'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('cronR'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('commonmark'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('remotes', 'blastula'), repos='https://cran.amrcloud.net/')" 
