@@ -1,5 +1,4 @@
 FROM debian:stretch
-
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://github.com/rocker-org/rocker-versioned" \
       org.label-schema.vendor="Rocker Project" \
@@ -157,9 +156,6 @@ RUN apt update && apt install -y \
     git-core \
     wget \
     libcairo2-dev
-    
-
-
 RUN apt install -y software-properties-common
 RUN sudo apt-get update \
 && apt-get install -y default-jre default-jdk \
@@ -169,7 +165,6 @@ RUN sudo apt-get update \
 RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit.deb?dl=1 -O mailsend-go_linux_64-bit.deb \
 && dpkg -i mailsend-go_linux_64-bit.deb \
 && rm mailsend-go_linux_64-bit.deb
-
 
 # basic shiny functionality
 RUN sudo R -e "getOption('repos'); install.packages('rmarkdown')" \
