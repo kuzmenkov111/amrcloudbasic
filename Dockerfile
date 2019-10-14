@@ -161,11 +161,9 @@ RUN sudo apt-get update \
 && apt-get install -y default-jre default-jdk \
 && apt install -y libudunits2-dev libgdal-dev libgeos-dev \
 && java -version
-
 RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit.deb?dl=1 -O mailsend-go_linux_64-bit.deb \
 && dpkg -i mailsend-go_linux_64-bit.deb \
 && rm mailsend-go_linux_64-bit.deb
-
 
 # basic shiny functionality
 RUN sudo R -e "getOption('repos'); install.packages('rmarkdown')" \
