@@ -1,5 +1,4 @@
 FROM ubuntu:bionic
-
 RUN useradd docker \
 	&& mkdir /home/docker \
 	&& mkdir /home/docker/app \
