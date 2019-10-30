@@ -1,12 +1,12 @@
 FROM ubuntu:bionic
-RUN useradd docker \
-	&& mkdir /home/docker \
-	&& mkdir /home/docker/app \
-	&& mkdir /home/docker/data \
-	&& mkdir /home/docker/cashe \
-	&& mkdir /home/docker/deleted \
-	&& chown -R docker:docker /home/docker \
-	&& addgroup docker staff
+RUN useradd -u 555 dockerapp\
+    && mkdir /home/dockerapp\
+    && mkdir /home/dockerapp/app \
+    && mkdir /home/dockerapp/data \
+    && mkdir /home/dockerapp/cashe \
+    && mkdir /home/dockerapp/deleted \
+    && chown -R dockerapp:dockerapp /home/dockerapp  \
+    && addgroup dockerapp staff
 	
 RUN apt update \
 	&& apt install -y locales \	
