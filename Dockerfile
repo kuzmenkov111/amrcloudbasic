@@ -92,20 +92,20 @@ RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit
 
 
 # basic shiny functionality
-RUN sudo R -e "getOption('repos'); install.packages('rmarkdown', repos = 'https://cran.amrcloud.net/')" \
+RUN sudo R -e "getOption('repos'); install.packages('rmarkdown')" \
 && R CMD javareconf -e \
-&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages('rJava', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('shiny', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('shinyjs', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('shinythemes', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('dplyr', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('data.table', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('pool',repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('bcrypt', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('binom', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('RPostgres', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('DBI', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('cronR', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages('commonmark', repos = 'https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'), repos = 'https://cran.amrcloud.net/')" \
+&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages('rJava')" \
+&& R -e "install.packages('shiny')" \
+&& R -e "install.packages('shinyjs')" \
+&& R -e "install.packages('shinythemes')" \
+&& R -e "install.packages('dplyr')" \
+&& R -e "install.packages('data.table')" \
+&& R -e "install.packages('pool')" \
+&& R -e "install.packages('bcrypt')" \
+&& R -e "install.packages('binom')" \
+&& R -e "install.packages('RPostgres')" \
+&& R -e "install.packages('DBI')" \
+&& R -e "install.packages('cronR')" \
+&& R -e "install.packages('commonmark')" \
+&& R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'))" \
 && R -e "install.packages('remotes')"
