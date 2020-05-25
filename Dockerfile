@@ -1,9 +1,6 @@
-FROM debian:stretch
+FROM debian:testing
 
-LABEL org.label-schema.license="GPL-2.0" \
-      org.label-schema.vcs-url="https://github.com/rocker-org/rocker-versioned" \
-      org.label-schema.vendor="Rocker Project" \
-      maintainer="Carl Boettiger <cboettig@ropensci.org>"
+LABEL org.label-schema.license="GPL-2.0"
 RUN useradd -u 555 dockerapp\
     && mkdir /home/dockerapp\
     && mkdir /home/dockerapp/app \
@@ -57,16 +54,8 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/* \
 
   ## Add a default miniCRAN mirror
-  && echo "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
-  ## Add a library directory (for user-installed packages)
-  && mkdir -p /usr/local/lib/R/site-library \
-  && chown root:staff /usr/local/lib/R/site-library \
-  && chmod g+wx /usr/local/lib/R/site-library \
-  ## Fix library path
-  && echo "R_LIBS_USER='/usr/local/lib/R/site-library'" >> /usr/local/lib/R/etc/Renviron \
-  && echo "R_LIBS=\${R_LIBS-'/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib/R/library'}" >> /usr/local/lib/R/etc/Renviron \
+  && echo "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
   
-
 # system libraries of general use
 RUN apt update && apt install -y \
     sudo \
