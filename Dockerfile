@@ -51,10 +51,10 @@ RUN apt-get update \
 	&& ln -s /usr/lib/R/site-library/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r \
 	&& install.r docopt \
 	&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
-	&& rm -rf /var/lib/apt/lists/* \
+	&& rm -rf /var/lib/apt/lists/*
 
   ## Add a default miniCRAN mirror
-  && echo "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
+ # && echo "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
   
 # system libraries of general use
 RUN apt update && apt install -y \
@@ -92,20 +92,20 @@ RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit
 
 
 # basic shiny functionality
-RUN sudo R -e "getOption('repos'); install.packages('rmarkdown')" \
+RUN sudo R -e "getOption('repos'); install.packages('rmarkdown', repos = 'https://cran.amrcloud.net/')" \
 && R CMD javareconf -e \
-&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages(c('rJava'))" \
-&& R -e "install.packages(c('shiny'))" \
-&& R -e "install.packages(c('shinyjs'))" \
-&& R -e "install.packages(c('shinythemes'))" \
-&& R -e "install.packages(c('dplyr'))" \
-&& R -e "install.packages(c('data.table'))" \
-&& R -e "install.packages(c('pool'))" \
-&& R -e "install.packages(c('bcrypt'))" \
-&& R -e "install.packages(c('binom'))" \
-&& R -e "install.packages(c('RPostgres'))" \
-&& R -e "install.packages(c('DBI'))" \
-&& R -e "install.packages(c('cronR'))" \
-&& R -e "install.packages(c('commonmark'))" \
-&& R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'))" \
+&& R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages('rJava', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('shiny', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('shinyjs', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('shinythemes', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('dplyr', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('data.table', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('pool',repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('bcrypt', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('binom', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('RPostgres', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('DBI', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('cronR', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages('commonmark', repos = 'https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'), repos = 'https://cran.amrcloud.net/')" \
 && R -e "install.packages('remotes')"
