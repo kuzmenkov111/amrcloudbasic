@@ -51,10 +51,10 @@ RUN apt-get update \
 	&& ln -s /usr/lib/R/site-library/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r \
 	&& install.r docopt \
 	&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
-	&& rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/* \
 
   ## Add a default miniCRAN mirror
- # && echo "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
+  && echo "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl')" >> /etc/R/Rprofile.site
   
 # system libraries of general use
 RUN apt update && apt install -y \
