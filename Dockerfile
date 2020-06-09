@@ -15,7 +15,7 @@ RUN useradd -u 555 dockerapp\
 
 ARG R_VERSION
 ARG BUILD_DATE
-ENV R_VERSION=${R_VERSION: 4.0.0} \
+ENV R_VERSION=${R_VERSION: -4.0.0} \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
     TERM=xterm
