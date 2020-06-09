@@ -6,8 +6,7 @@ RUN useradd -u 555 dockerapp\
     && mkdir /home/dockerapp/cashe \
     && mkdir /home/dockerapp/deleted \
     && chown -R dockerapp:dockerapp /home/dockerapp  \
-    && addgroup dockerapp staff
-	
+    && addgroup dockerapp staff	
 RUN apt update \
 	&& apt install -y locales \	
 	&& echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
