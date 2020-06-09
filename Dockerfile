@@ -107,9 +107,10 @@ RUN apt-get update \
                --with-recommended-packages \
   ## Build and install
   && make \
-  && make install \
+  && make install
+ 
   ## Add a default miniCRAN mirror
-  && echo "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
+  RUN echo "options(repos = c(CRAN = 'https://cran.amrcloud.net/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site \
   ## Add a library directory (for user-installed packages)
   && mkdir -p /usr/local/lib/R/site-library \
   && chown root:staff /usr/local/lib/R/site-library \
