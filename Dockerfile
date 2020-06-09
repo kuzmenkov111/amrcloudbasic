@@ -110,5 +110,6 @@ RUN sudo R -e "install.packages('rmarkdown', repos='https://cran.amrcloud.net/')
 && R -e "install.packages(c('DBI'), repos='https://cran.amrcloud.net/')" \
 && R -e "install.packages(c('cronR'), repos='https://cran.amrcloud.net/')" \
 && R -e "install.packages(c('commonmark'), repos='https://cran.amrcloud.net/')" \
+&& R -e "install.packages(c('caTools'), repos='https://cran.amrcloud.net/')" \
 && R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'), repos='https://cran.amrcloud.net/')" \
 && R -e "install.packages(c('remotes', 'blastula', 'gplots'), repos='https://cran.amrcloud.net/')" 
