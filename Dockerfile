@@ -58,6 +58,7 @@ RUN apt-get update \
     libjpeg-dev \
     libicu-dev \
     libpcre3-dev \
+    libpcre2-dev \
     libpng-dev \
     libreadline-dev \
     libtiff5-dev \
