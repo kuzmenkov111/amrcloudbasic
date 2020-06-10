@@ -184,4 +184,5 @@ RUN sudo R -e "getOption('repos'); install.packages('rmarkdown')" \
 && R -e "install.packages(c('cronR'))" \
 && R -e "install.packages(c('commonmark'))" \
 && R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'))" \
-&& R -e "install.packages(c('remotes', 'blastula', 'gplots'))"
+&& R -e "install.packages(c('remotes', 'blastula'))" \
+&& R -e "install.packages('gplots', repos = 'https://cran.r-project.org/')"
