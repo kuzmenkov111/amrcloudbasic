@@ -35,7 +35,7 @@ ENV LANG en_US.UTF-8
 RUN echo "deb http://http.debian.net/debian sid main" > /etc/apt/sources.list.d/debian-unstable.list \
         && echo 'APT::Default-Release "testing";' > /etc/apt/apt.conf.d/default
 
-ENV R_BASE_VERSION 4.0.0
+ENV R_BASE_VERSION 4.0.2
 
 ## Now install R and littler, and create a link for littler in /usr/local/bin
 RUN apt-get update \
@@ -108,4 +108,4 @@ RUN sudo R -e "getOption('repos'); install.packages('rmarkdown')" \
 && R -e "install.packages('cronR')" \
 && R -e "install.packages('commonmark')" \
 && R -e "install.packages(c('httr', 'processx', 'tidyr', 'ggplot2'))" \
-&& R -e "install.packages('remotes')"
+&& R -e "install.packages(c('remotes', 'blastula', 'gplots'))"
