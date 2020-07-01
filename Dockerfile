@@ -134,7 +134,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # system libraries of general use
-RUN apt update && apt install -y \
+RUN apt update && apt install -y --no-install-recommends \
     sudo \
     pandoc \
     pandoc-citeproc \
@@ -159,9 +159,9 @@ RUN apt update && apt install -y \
     git-core \
     wget \
     libcairo2-dev
-RUN apt install -y software-properties-common
+RUN apt install -y --no-install-recommends software-properties-common
 RUN sudo apt-get update \
-&& apt-get install -y default-jre default-jdk \
+&& apt-get install -y --no-install-recommends default-jre default-jdk \
 && apt install -y libudunits2-dev libgdal-dev libgeos-dev \
 && java -version
 RUN sudo wget https://www.dropbox.com/s/sgdwyp7kve44gtp/mailsend-go_linux_64-bit.deb?dl=1 -O mailsend-go_linux_64-bit.deb \
